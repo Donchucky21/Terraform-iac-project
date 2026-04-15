@@ -41,3 +41,4 @@ asg.tf
 alb.tf
 security-group.tfgit_ssh
 git_ssh.pub
+git_ssh
