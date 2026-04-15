@@ -39,4 +39,5 @@ terraform.rc
 key-pair.tf
 asg.tf
 alb.tf
-security-group.tf
+security-group.tfgit_ssh
+git_ssh.pub
