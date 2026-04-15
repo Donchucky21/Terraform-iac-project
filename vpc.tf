@@ -28,7 +28,7 @@ resource "aws_internet_gateway" "internet_gateway" {
 resource "aws_subnet" "public_subnet_az1" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = var.public_subnet_az1_cidr
-  availability_zone       = "us-east-1a"
+  availability_zone       = "eu-west-2a"
   map_public_ip_on_launch = true
 
   tags = {
@@ -41,7 +41,7 @@ resource "aws_subnet" "public_subnet_az1" {
 resource "aws_subnet" "public_subnet_az2" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = var.public_subnet_az2_cidr
-  availability_zone       = "us-east-1b"
+  availability_zone       = "eu-west-2b"
   map_public_ip_on_launch = true
 
   tags = {
@@ -83,7 +83,7 @@ resource "aws_route_table_association" "public_subnet_2_route_table_association"
 resource "aws_subnet" "private_app_subnet_az1" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = var.private_app_subnet_az1_cidr
-  availability_zone       = "us-east-1a"
+  availability_zone       = "eu-west-2a"
   map_public_ip_on_launch = false
 
   tags = {
@@ -96,10 +96,34 @@ resource "aws_subnet" "private_app_subnet_az1" {
 resource "aws_subnet" "private_app_subnet_az2" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = var.private_app_subnet_az2_cidr
-  availability_zone       = "us-east-1b"
+  availability_zone       = "eu-west-2b"
   map_public_ip_on_launch = false
 
   tags = {
     Name = "private app subnet Az2"
+  }
+}
+
+#create private db subnet az1
+resource "aws_subnet" "private_db_subnet_az1" {
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = var.private_db_subnet_az1_cidr
+  availability_zone       = "eu-west-2a"
+  map_public_ip_on_launch = false
+
+  tags = {
+    Name = "private DB subnet Az1"
+  }
+}
+
+#create private db subnet az2
+resource "aws_subnet" "private_app_subnet_az2" {
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = var.private_db_subnet_az2_cidr
+  availability_zone       = "eu-west-2b"
+  map_public_ip_on_launch = false
+
+  tags = {
+    Name = "private DB subnet Az2"
   }
 }

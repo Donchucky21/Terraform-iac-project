@@ -28,3 +28,15 @@ variable "private_app_subnet_az2_cidr" {
   type        = string
 
 }
+
+variable "private_db_subnet_az1_cidr" {
+  description = "Private DB subnet az1 CIDR Block"
+  type        = string
+
+}
+
+variable "private_db_subnet_az2_cidr" {
+  description = "Private DB subnet az2 CIDR Block"
+  type        = string
+
+}
